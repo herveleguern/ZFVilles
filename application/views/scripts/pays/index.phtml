@@ -1,0 +1,30 @@
+
+<h2>Gérer les pays</h2>
+<p><a href="<?php
+    echo $this->url(array('controller' => 'pays', 'action' => 'ajouter'));
+    ?>">Ajouter un pays</a>
+</p>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Continent</th>
+    </tr>
+    <?php foreach ($this->lesPays as $unPays) : ?>
+        <tr>
+            <td><?php echo $unPays->id; ?></td>
+            <td><?php echo $unPays->nom; ?></td>
+            <td><?php echo $unPays->continent; ?></td>
+            <td>
+                <a href="<?php
+                echo $this->url(array('controller' => 'pays',
+                    'action' => 'modifier', 'id' => $unPays->id));
+                ?>">Modifier</a>
+                <a href="<?php
+                echo $this->url(array('controller' => 'pays',
+                    'action' => 'supprimer', 'id' => $unPays->id));
+                ?>">Supprimer</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
